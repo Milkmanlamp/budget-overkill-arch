@@ -37,14 +37,12 @@
             "id": "9de97f6447ebe67a",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "To do.md",
-                "mode": "source",
-                "source": false
+                "file": "Images/Pasted image 20260305201446.png"
               },
-              "icon": "lucide-file",
-              "title": "To do"
+              "icon": "lucide-image",
+              "title": "Pasted image 20260305201446"
             }
           }
         ],
@@ -121,7 +119,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "To do.md",
+                "file": "Images/Pasted image 20260305201446.png",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -131,7 +129,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for To do"
+              "title": "Backlinks for Pasted image 20260305201446"
             }
           },
           {
@@ -140,12 +138,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "To do.md",
+                "file": "Images/Pasted image 20260305201446.png",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from To do"
+              "title": "Outgoing links from Pasted image 20260305201446"
             }
           },
           {
@@ -183,13 +181,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "To do.md",
+                "file": "Images/Pasted image 20260305201446.png",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of To do"
+              "title": "Outline of Pasted image 20260305201446"
             }
           }
         ]
@@ -212,10 +210,10 @@
   },
   "active": "9de97f6447ebe67a",
   "lastOpenFiles": [
-    "Pasted image 20260305201446.png",
-    "Pasted image 20260305194355.png",
-    "Initial Plan.md",
+    "Images/Pasted image 20260305194355.png",
     "To do.md",
+    "Images/Pasted image 20260305201446.png",
+    "Initial Plan.md",
     "High level Overview.md",
     "Images/Pasted image 20260305182725.png",
     "Images",

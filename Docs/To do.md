@@ -52,7 +52,15 @@ resource "aws_vpc" "this" {
 
 ```
 Make sure to enable DNS as this whole system uses hostnames and can just use ips
-
+i tried to be clean with the set up and use count and for each to reduce repeating myself
 
 ## Validate current set up 
 ![[Pasted image 20260305201446.png]]
+
+## Set up Storage and VPC Endpoints for Dynamo db and S3
+
+I tried to keep the gateways secure and only allow access from the two services from only things that need to use them (and i found out later, the current user logged in to terraform and root)
+
+#### Storage
+when setting up the storage i set up versioning for now
+later ill set up mfa delete and lifecycle rules to move to a archive bucket

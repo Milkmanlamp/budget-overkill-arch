@@ -42,3 +42,20 @@ resource "aws_route_table_association" "public_assoc" {
   subnet_id      = aws_subnet.public[count.index].id
   route_table_id = aws_route_table.public_rt.id
 }
+# i didnt use explicit type of gateway as i realised it is default lol
+resource "aws_vpc_endpoint" "gateways" {
+  for_each     = local.gateway_endpoints
+  vpc_id       = aws_vpc.this.id
+  service_name = "com.amazonaws.${var.region}.${each.key}"
+  policy       = each.value.policy
+  tags = {
+    Name = "${each.key}-gateway-endpoint"
+  }
+}
+
+resource "aws_vpc_endpoint_route_table_association" "gateway_routes" {
+  for_each = aws_vpc_endpoint.gateways
+
+  route_table_id  = aws_route_table.public_rt.id
+  vpc_endpoint_id = each.value.id
+}
