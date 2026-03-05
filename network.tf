@@ -59,3 +59,51 @@ resource "aws_vpc_endpoint_route_table_association" "gateway_routes" {
   route_table_id  = aws_route_table.public_rt.id
   vpc_endpoint_id = each.value.id
 }
+
+resource "aws_security_group" "alb" {
+  vpc_id = aws_vpc.this.id
+  tags = {
+    Name = "alb-sg"
+  }
+}
+
+resource "aws_security_group" "ecs" {
+  vpc_id = aws_vpc.this.id
+  tags = {
+    Name = "ecs-sg"
+  }
+}
+resource "aws_vpc_security_group_ingress_rule" "http_in" {
+  ip_protocol       = "tcp"
+  cidr_ipv4         = "0.0.0.0/0"
+  to_port           = 80
+  from_port         = 80
+  security_group_id = aws_security_group.alb.id
+}
+resource "aws_vpc_security_group_ingress_rule" "https_in" {
+  ip_protocol       = "tcp"
+  cidr_ipv4         = "0.0.0.0/0"
+  to_port           = 443
+  from_port         = 443
+  security_group_id = aws_security_group.alb.id
+}
+
+resource "aws_vpc_security_group_ingress_rule" "alb_in" {
+  ip_protocol                  = "tcp"
+  referenced_security_group_id = aws_security_group.alb.id
+  to_port                      = 3000
+  from_port                    = 3000
+  security_group_id            = aws_security_group.ecs.id
+}
+resource "aws_vpc_security_group_egress_rule" "all_out" {
+  ip_protocol       = "-1"
+  cidr_ipv4         = "0.0.0.0/0"
+  security_group_id = aws_security_group.ecs.id
+}
+resource "aws_vpc_security_group_egress_rule" "alb_to_ecs" {
+  ip_protocol                  = "tcp"
+  from_port                    = 3000
+  to_port                      = 3000
+  referenced_security_group_id = aws_security_group.ecs.id
+  security_group_id            = aws_security_group.alb.id
+}

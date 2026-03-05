@@ -1,3 +1,5 @@
+#### This is my rough notes so i dont get lost when i start this project back up excuse the rough english
+
 - set up obsidian vault inside project so my notes are version controlled 
 - Plan what services im going to use 
 - Make a Architecture overview for the initial state
@@ -64,3 +66,19 @@ I tried to keep the gateways secure and only allow access from the two services 
 #### Storage
 when setting up the storage i set up versioning for now
 later ill set up mfa delete and lifecycle rules to move to a archive bucket
+
+
+## Time to make the ECS as everything else depends on it
+
+First i set up the SG to let htttp and https in to the ALB and port 300 from alb to the containers 
+this should link them all together 
+
+
+- Set up the ECR
+- Set up the SGs for the alb and ECS cluster
+- set up the Task, cluster, service for ecs
+- Now i need to test that everything connects and works, i might do that later
+- still need to make the docker image and bring in my next js code from my repo
+
+getting a error atm but i wanna take a break as ive been going hard for the last half day
+![[Pasted image 20260305223541.png]] 
